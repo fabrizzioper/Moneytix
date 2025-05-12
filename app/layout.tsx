@@ -6,7 +6,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Bond Simulator - Monetix",
+  title: "Monetix",
   description: "Simulador de bonos con método francés",
 }
 

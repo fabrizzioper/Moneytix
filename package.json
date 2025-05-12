@@ -9,9 +9,9 @@
   },
   "scripts": {
     "dev": "next dev",
-    "predeploy": "npm run build && npm run export",
     "deploy": "gh-pages -d out",
-    "build": "next build",
+     "predeploy": "next build",
+ "build": "next build",
     "start": "next start",
     "preview": "serve -s out -l 3000",
     "lint": "next lint"
