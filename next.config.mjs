@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {      
+const nextConfig = {
+   output: 'export',      
   trailingSlash: true,
   reactStrictMode: true,
   eslint: {
@@ -13,4 +14,4 @@ const nextConfig = {
   },
 }
 
-export default nextConfig
+module.exports = nextConfig
