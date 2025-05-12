@@ -20,6 +20,7 @@ import { format } from "date-fns"
 import { es } from "date-fns/locale"
 import { cn } from "@/lib/utils"
 import { Sidebar } from "../../../components/sidebar"
+import { FullPageLoader } from "../../../components/full-page-loader"
 
 // Define types for form data
 interface BondFormData {
@@ -63,6 +64,7 @@ interface ValidationErrors {
   customFrequency?: string
   totalTerm?: string
   initialQuotaPercentage?: string
+  amortizationMethod?: string // Añadimos esta propiedad
   rateType?: string
   capitalizationM?: string
   nominalValue?: string
@@ -215,7 +217,7 @@ export default function NewBondPage() {
     }))
 
     // Clear error for the field when it changes
-    if (errors[field]) {
+    if (field in errors) {
       setErrors((prev) => ({
         ...prev,
         [field]: undefined,
@@ -1150,6 +1152,7 @@ export default function NewBondPage() {
           </form>
         </div>
       </div>
+      {isLoading && <FullPageLoader />}
     </div>
   )
 }
