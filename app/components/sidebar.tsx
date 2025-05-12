@@ -112,6 +112,7 @@ export function Sidebar({ currentPath }: SidebarProps) {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  prefetch={true}
                   className={`flex items-center ${
                     expanded ? "justify-start gap-3 px-3" : "justify-center"
                   } py-2 rounded-md text-sm ${
@@ -180,6 +181,7 @@ export function Sidebar({ currentPath }: SidebarProps) {
                     <li key={item.href}>
                       <Link
                         href={item.href}
+                        prefetch={true}
                         className={`flex items-center justify-between px-3 py-2 rounded-md text-sm ${
                           currentPath.startsWith(item.href)
                             ? "bg-slate-100 text-slate-900 font-medium"

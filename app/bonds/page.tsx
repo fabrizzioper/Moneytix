@@ -20,6 +20,7 @@ import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 import { Search, Plus, ArrowUpDown, Eye, Copy, Trash2 } from "lucide-react"
 import { Sidebar } from "../components/sidebar"
+import Link from "next/link"
 
 // Define the Bond type
 interface Bond {
@@ -212,13 +213,12 @@ export default function BondsPage() {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button
-                    onClick={() => router.push("/bonds/form/new")}
-                    className="mt-4 md:mt-0 bg-green-500 hover:bg-green-600"
-                  >
-                    <Plus className="mr-2 h-4 w-4" />
-                    Nuevo bono
-                  </Button>
+                  <Link href="/bonds/form/new" prefetch={true}>
+                    <Button className="mt-4 md:mt-0 bg-green-500 hover:bg-green-600">
+                      <Plus className="mr-2 h-4 w-4" />
+                      Nuevo bono
+                    </Button>
+                  </Link>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>Comienza una nueva valoración con el método francés</p>
@@ -255,7 +255,9 @@ export default function BondsPage() {
           {/* Empty state */}
           {bonds.length === 0 ? (
             <div className="text-center py-16 bg-slate-50 rounded-lg border border-slate-200">
-             
+              <div className="mx-auto w-24 h-24 mb-4 text-slate-300">
+                <Image src="/empty-folder-illustration.png" alt="No bonds" width={96} height={96} />
+              </div>
               <h3 className="text-lg font-medium text-slate-700 mb-2">Aún no has creado ningún bono</h3>
               <p className="text-slate-500 mb-6">Comienza creando tu primer bono para ver los resultados aquí</p>
               <Button onClick={() => router.push("/bonds/form/new")} className="bg-green-500 hover:bg-green-600">
@@ -357,12 +359,11 @@ export default function BondsPage() {
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button
-                    onClick={() => router.push("/bonds/form/new")}
-                    className="h-14 w-14 rounded-full bg-green-500 hover:bg-green-600 shadow-lg"
-                  >
-                    <Plus size={24} />
-                  </Button>
+                  <Link href="/bonds/form/new" prefetch={true}>
+                    <Button className="h-14 w-14 rounded-full bg-green-500 hover:bg-green-600 shadow-lg">
+                      <Plus size={24} />
+                    </Button>
+                  </Link>
                 </TooltipTrigger>
                 <TooltipContent side="left">
                   <p>Comienza una nueva valoración con el método francés</p>
